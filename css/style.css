@@ -1,12 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: green;
+  background-color: #006400;
   color: #222;
 }
 
 header {
-  background-color: black;
+  background-color: #808080;
   color: white;
   padding: 20px;
   text-align: center;
@@ -25,7 +25,7 @@ main {
 }
 
 section {
-  background-color: white;
+  background-color: #32CD32;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;
