@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "nombre": "Teclado básico USB",
+    "descripcion": "Teclado de ejemplo para cargar desde una base de datos local en formato JSON.",
+    "precio": 8990,
+    "stock": 10,
+    "categoria": "Periféricos"
+  }
+]
