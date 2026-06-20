@@ -1,13 +1,20 @@
 // Archivo base para estudiantes.
-// Objetivo: cargar productos desde JSON, mostrar un producto y validar formularios de forma básica.
+// Objetivo: cargar productos desde JSON, mostrar productos y validar formularios de forma básica.
 
 let productoEjemplo = null;
 
 fetch("data/productos.json")
   .then(respuesta => respuesta.json())
   .then(datos => {
-  mostrarProductos(datos);
-})
+    // Se guarda el primer producto para el resumen de compra
+    productoEjemplo = datos[0];
+
+    // Se muestran todos los productos
+    mostrarProductos(datos);
+
+    // Se actualiza el resumen inicial
+    actualizarResumenCompra();
+  })
   .catch(error => {
     console.error("Error al cargar productos.json:", error);
   });
@@ -30,9 +37,6 @@ function mostrarProductos(productos) {
   });
 }
 
-  actualizarResumenCompra();
-}
-
 function actualizarResumenCompra() {
   if (productoEjemplo === null) {
     return;
@@ -48,8 +52,10 @@ function actualizarResumenCompra() {
     `Producto: ${productoEjemplo.nombre} | Cantidad: ${cantidad} | Total: $${total}`;
 }
 
+// Actualiza el resumen cuando cambia la cantidad
 document.getElementById("cantidad").addEventListener("input", actualizarResumenCompra);
 
+// Formulario de compra
 document.getElementById("formCompra").addEventListener("submit", function(event) {
   const nombre = document.getElementById("nombreCompra").value.trim();
   const correo = document.getElementById("correoCompra").value.trim();
@@ -66,6 +72,7 @@ document.getElementById("formCompra").addEventListener("submit", function(event)
   // Mostrar mensajes de error en la página, no solo con alert.
 });
 
+// Formulario de contacto
 document.getElementById("formContacto").addEventListener("submit", function(event) {
   const nombre = document.getElementById("nombreContacto").value.trim();
   const correo = document.getElementById("correoContacto").value.trim();
