@@ -6,24 +6,29 @@ let productoEjemplo = null;
 fetch("data/productos.json")
   .then(respuesta => respuesta.json())
   .then(datos => {
-    productoEjemplo = datos[0];
-    mostrarProducto(productoEjemplo);
-  })
+  mostrarProductos(datos);
+})
   .catch(error => {
     console.error("Error al cargar productos.json:", error);
   });
 
-function mostrarProducto(producto) {
+function mostrarProductos(productos) {
   const contenedor = document.getElementById("contenedor-productos");
 
-  contenedor.innerHTML = `
-    <div class="producto">
-      <h3>${producto.nombre}</h3>
-      <p>${producto.descripcion}</p>
-      <p><strong>Precio:</strong> $${producto.precio}</p>
-      <p><strong>Stock:</strong> ${producto.stock}</p>
-    </div>
-  `;
+  contenedor.innerHTML = "";
+
+  productos.forEach(producto => {
+    contenedor.innerHTML += `
+      <div class="producto">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.descripcion}</p>
+        <p><strong>Categoría:</strong> ${producto.categoria}</p>
+        <p><strong>Precio:</strong> $${producto.precio}</p>
+        <p><strong>Stock:</strong> ${producto.stock}</p>
+      </div>
+    `;
+  });
+}
 
   actualizarResumenCompra();
 }
