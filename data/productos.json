@@ -6,7 +6,7 @@
     "precio": 8990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 2,
     "nombre": "Monitor básico HDMI",
@@ -14,7 +14,7 @@
     "precio": 40990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 3,
     "nombre": "Teclado básico con RGB USB",
@@ -22,7 +22,7 @@
     "precio": 13990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 4,
     "nombre": "Mouse básico USB",
@@ -30,7 +30,7 @@
     "precio": 8990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 5,
     "nombre": "Mouse GAMER RGB USB",
@@ -38,7 +38,7 @@
     "precio": 15990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 6,
     "nombre": "Monitor Curvo HDMI",
@@ -46,7 +46,7 @@
     "precio": 98990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+  },
     {
     "id": 7,
     "nombre": "Silla ergonómica",
@@ -55,5 +55,4 @@
     "stock": 10,
     "categoria": "Periféricos"
   }
-  
 ]
