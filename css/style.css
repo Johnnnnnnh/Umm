@@ -86,3 +86,36 @@ footer {
     margin: 8px 0;
   }
 }
+
+#carrito {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#carrito ul {
+  list-style: none;
+  padding: 0;
+}
+
+#carrito li {
+  margin: 5px 0;
+}
+
+#carrito button {
+  margin-top: 10px;
+  background-color: #dc2626;
+}
+
+#carrito button:hover {
+  background-color: #b91c1c;
+}
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+  display: block;
+}
+
