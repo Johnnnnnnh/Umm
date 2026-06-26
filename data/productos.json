@@ -55,4 +55,31 @@
     "stock": 10,
     "categoria": "Periféricos"
   }
+  {
+  "id": 8,
+  "nombre": "Audífonos básicos",
+  "descripcion": "Audífonos de ejemplo para cargar desde JSON.",
+  "precio": 5990,
+  "stock": 10,
+  "categoria": "Periféricos",
+  "imagen": "img/audifonos.png"
+  },
+  {
+  "id": 9,
+  "nombre": "Webcam básica USB",
+  "descripcion": "Webcam de ejemplo para cargar desde JSON.",
+  "precio": 12990,
+  "stock": 10,
+  "categoria": "Periféricos",
+  "imagen": "img/webcam.png"
+  },
+  {
+  "id": 10,
+  "nombre": "Parlantes básicos",
+  "descripcion": "Parlantes de ejemplo para cargar desde JSON.",
+  "precio": 19990,
+  "stock": 10,
+  "categoria": "Periféricos",
+  "imagen": "img/parlantes.png"
+  }
 ]
