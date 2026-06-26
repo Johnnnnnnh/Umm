@@ -5,90 +5,89 @@
     "descripcion": "Teclado de ejemplo para cargar desde una base de datos local en formato JSON.",
     "precio": 8990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/teclado.png"
-
   },
-    {
+  {
     "id": 2,
     "nombre": "Monitor básico HDMI",
     "descripcion": "Monitor de ejemplo para cargar desde una base de datos local en formato JSON.",
     "precio": 40990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/monitor.jpg"
-
   },
-    {
+  {
     "id": 3,
     "nombre": "Teclado básico con RGB USB",
     "descripcion": "Teclado de ejemplo con RGB para cargar desde una base de datos local en formato JSON.",
     "precio": 13990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/tecladorgb.png"
   },
-    {
+  {
     "id": 4,
     "nombre": "Mouse básico USB",
     "descripcion": "Mouse de ejemplo para cargar desde una base de datos local en formato JSON.",
     "precio": 8990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/mouse.png"
   },
-    {
+  {
     "id": 5,
     "nombre": "Mouse GAMER RGB USB",
     "descripcion": "Mouse de ejemplo GAMER RGB para cargar desde una base de datos local en formato JSON.",
     "precio": 15990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/mousergb.jpg"
   },
-    {
+  {
     "id": 6,
     "nombre": "Monitor Curvo HDMI",
     "descripcion": "Monitor Curvo de ejemplo para cargar desde una base de datos local en formato JSON.",
     "precio": 98990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/monitor.jpg"
   },
-    {
+  {
     "id": 7,
     "nombre": "Silla ergonómica",
     "descripcion": "Silla ergonómica de ejemplo para cargar desde una base de datos local en formato JSON.",
     "precio": 84990,
     "stock": 10,
-    "categoria": "Periféricos"
+    "categoria": "Periféricos",
     "imagen": "img/silla.jpg"
   },
   {
-  "id": 8,
-  "nombre": "Audífonos básicos",
-  "descripcion": "Audífonos de ejemplo para cargar desde JSON.",
-  "precio": 5990,
-  "stock": 10,
-  "categoria": "Periféricos",
-  "imagen": "img/audifonos.jpg"
+    "id": 8,
+    "nombre": "Audífonos básicos",
+    "descripcion": "Audífonos de ejemplo para cargar desde JSON.",
+    "precio": 5990,
+    "stock": 10,
+    "categoria": "Periféricos",
+    "imagen": "img/audifonos.jpg"
   },
   {
-  "id": 9,
-  "nombre": "Webcam básica USB",
-  "descripcion": "Webcam de ejemplo para cargar desde JSON.",
-  "precio": 12990,
-  "stock": 10,
-  "categoria": "Periféricos",
-  "imagen": "img/camara.jpg"
+    "id": 9,
+    "nombre": "Webcam básica USB",
+    "descripcion": "Webcam de ejemplo para cargar desde JSON.",
+    "precio": 12990,
+    "stock": 10,
+    "categoria": "Periféricos",
+    "imagen": "img/camara.jpg"
   },
   {
-  "id": 10,
-  "nombre": "Parlantes básicos",
-  "descripcion": "Parlantes de ejemplo para cargar desde JSON.",
-  "precio": 19990,
-  "stock": 10,
-  "categoria": "Periféricos",
-  "imagen": "img/parlante.png"
+    "id": 10,
+    "nombre": "Parlantes básicos",
+    "descripcion": "Parlantes de ejemplo para cargar desde JSON.",
+    "precio": 19990,
+    "stock": 10,
+    "categoria": "Periféricos",
+    "imagen": "img/parlante.png"
   }
 ]
+
