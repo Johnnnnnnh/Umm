@@ -6,6 +6,8 @@
     "precio": 8990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/teclado.png"
+
   },
     {
     "id": 2,
@@ -14,6 +16,8 @@
     "precio": 40990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/monitor.png"
+
   },
     {
     "id": 3,
@@ -22,6 +26,7 @@
     "precio": 13990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/tecladorgb.png"
   },
     {
     "id": 4,
@@ -30,6 +35,7 @@
     "precio": 8990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/mouse.png"
   },
     {
     "id": 5,
@@ -38,6 +44,7 @@
     "precio": 15990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/mousergb.png"
   },
     {
     "id": 6,
@@ -46,6 +53,7 @@
     "precio": 98990,
     "stock": 10,
     "categoria": "Periféricos"
+    "imagen": "img/monitor.png"
   },
     {
     "id": 7,
@@ -54,7 +62,8 @@
     "precio": 84990,
     "stock": 10,
     "categoria": "Periféricos"
-  }
+    "imagen": "img/silla.png"
+  },
   {
   "id": 8,
   "nombre": "Audífonos básicos",
