@@ -58,7 +58,6 @@ function actualizarResumenCompra() {
   const resumen = document.getElementById("resumenCompra");
   const detalle = document.getElementById("detalleProducto");
 
-  // NUEVO: referencias al carrito visible
   const listaCarrito = document.getElementById("listaCarrito");
   const totalCarrito = document.getElementById("totalCarrito");
 
@@ -93,7 +92,7 @@ function actualizarResumenCompra() {
   if (totalCarrito) totalCarrito.textContent = `Total: $${total}`;
 }
 
-// 👉 Función independiente, fuera de actualizarResumenCompra
+// Función independiente para vaciar carrito
 function vaciarCarrito() {
   carrito = [];
   actualizarResumenCompra();
