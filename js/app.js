@@ -57,23 +57,45 @@ function actualizarResumenCompra() {
   const resumen = document.getElementById("resumenCompra");
   const detalle = document.getElementById("detalleProducto");
 
+  // NUEVO: referencias al carrito visible
+  const listaCarrito = document.getElementById("listaCarrito");
+  const totalCarrito = document.getElementById("totalCarrito");
+
   if (carrito.length === 0) {
     resumen.textContent = "Carrito vacío.";
     detalle.value = "";
+    if (listaCarrito) listaCarrito.innerHTML = "";
+    if (totalCarrito) totalCarrito.textContent = "Total: $0";
     return;
   }
 
   let textoResumen = "";
   let total = 0;
 
+  if (listaCarrito) listaCarrito.innerHTML = "";
+
   carrito.forEach(item => {
     const subtotal = item.precio * item.cantidad;
     total += subtotal;
     textoResumen += `${item.nombre} x${item.cantidad} = $${subtotal} | `;
+
+    if (listaCarrito) {
+      const li = document.createElement("li");
+      li.textContent = `${item.nombre} x${item.cantidad} = $${subtotal}`;
+      listaCarrito.appendChild(li);
+    }
   });
 
   resumen.textContent = `Carrito: ${textoResumen} Total: $${total}`;
   detalle.value = `Carrito: ${textoResumen} Total: $${total}`;
+
+  if (totalCarrito) totalCarrito.textContent = `Total: $${total}`;
+}
+
+// 👉 Función independiente, fuera de actualizarResumenCompra
+function vaciarCarrito() {
+  carrito = [];
+  actualizarResumenCompra();
 }
 
 // Mostrar error junto a un campo
@@ -118,3 +140,4 @@ document.getElementById("formContacto").addEventListener("submit", function(even
     if (mensaje.length < 20) mostrarError("mensaje", "El mensaje debe tener al menos 20 caracteres.");
   }
 });
+
