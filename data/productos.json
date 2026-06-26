@@ -16,7 +16,7 @@
     "precio": 40990,
     "stock": 10,
     "categoria": "Periféricos"
-    "imagen": "img/monitor.png"
+    "imagen": "img/monitor.jpg"
 
   },
     {
@@ -44,7 +44,7 @@
     "precio": 15990,
     "stock": 10,
     "categoria": "Periféricos"
-    "imagen": "img/mousergb.png"
+    "imagen": "img/mousergb.jpg"
   },
     {
     "id": 6,
@@ -53,7 +53,7 @@
     "precio": 98990,
     "stock": 10,
     "categoria": "Periféricos"
-    "imagen": "img/monitor.png"
+    "imagen": "img/monitor.jpg"
   },
     {
     "id": 7,
@@ -62,7 +62,7 @@
     "precio": 84990,
     "stock": 10,
     "categoria": "Periféricos"
-    "imagen": "img/silla.png"
+    "imagen": "img/silla.jpg"
   },
   {
   "id": 8,
@@ -71,7 +71,7 @@
   "precio": 5990,
   "stock": 10,
   "categoria": "Periféricos",
-  "imagen": "img/audifonos.png"
+  "imagen": "img/audifonos.jpg"
   },
   {
   "id": 9,
@@ -80,7 +80,7 @@
   "precio": 12990,
   "stock": 10,
   "categoria": "Periféricos",
-  "imagen": "img/webcam.png"
+  "imagen": "img/camara.jpg"
   },
   {
   "id": 10,
@@ -89,6 +89,6 @@
   "precio": 19990,
   "stock": 10,
   "categoria": "Periféricos",
-  "imagen": "img/parlantes.png"
+  "imagen": "img/parlante.png"
   }
 ]
