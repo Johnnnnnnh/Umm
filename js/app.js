@@ -25,6 +25,7 @@ function mostrarProductos(productos) {
     contenedor.innerHTML += `
       <div class="producto">
         <h3>${producto.nombre}</h3>
+        <img src="${producto.imagen}" alt="${producto.nombre}" class="imagen-producto">
         <p>${producto.descripcion}</p>
         <p><strong>Precio:</strong> $${producto.precio}</p>
         <p><strong>Stock:</strong> ${producto.stock}</p>
