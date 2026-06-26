@@ -45,7 +45,7 @@ function agregarAlCarrito(idProducto) {
     if (item.cantidad < producto.stock) {
       item.cantidad++;
     } else {
-      mostrarError("cantidad", "No hay suficiente stock disponible.");
+      mostrarError("nombreCompra", "No hay suficiente stock disponible.");
     }
   } else {
     carrito.push({ ...producto, cantidad: 1 });
@@ -56,28 +56,35 @@ function agregarAlCarrito(idProducto) {
 // Actualizar resumen de compra
 function actualizarResumenCompra() {
   const resumen = document.getElementById("resumenCompra");
-  const detalle = document.getElementById("detalleProducto");
-
   const listaCarrito = document.getElementById("listaCarrito");
   const totalCarrito = document.getElementById("totalCarrito");
 
+  // Limpiar campos ocultos de ítems anteriores
+  document.querySelectorAll(".item-carrito-hidden").forEach(el => el.remove());
+
   if (carrito.length === 0) {
     resumen.textContent = "Carrito vacío.";
-    detalle.value = "";
     if (listaCarrito) listaCarrito.innerHTML = "";
     if (totalCarrito) totalCarrito.textContent = "Total: $0";
     return;
   }
 
-  let textoResumen = "";
   let total = 0;
-
   if (listaCarrito) listaCarrito.innerHTML = "";
 
-  carrito.forEach(item => {
+  const form = document.getElementById("formCompra");
+
+  carrito.forEach((item, index) => {
     const subtotal = item.precio * item.cantidad;
     total += subtotal;
-    textoResumen += `${item.nombre} x${item.cantidad} = $${subtotal} | `;
+
+    // Un campo oculto por ítem → FormSubmit lo muestra como fila separada en el correo
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = `item_${index + 1}_${item.nombre}`;
+    input.value = `Cantidad: ${item.cantidad} | Precio unitario: $${item.precio} | Subtotal: $${subtotal}`;
+    input.classList.add("item-carrito-hidden");
+    form.appendChild(input);
 
     if (listaCarrito) {
       const li = document.createElement("li");
@@ -86,9 +93,15 @@ function actualizarResumenCompra() {
     }
   });
 
-  resumen.textContent = `Carrito: ${textoResumen} Total: $${total}`;
-  detalle.value = `Carrito: ${textoResumen} Total: $${total}`;
+  // Campo separado para el total
+  const inputTotal = document.createElement("input");
+  inputTotal.type = "hidden";
+  inputTotal.name = "total_compra";
+  inputTotal.value = `$${total}`;
+  inputTotal.classList.add("item-carrito-hidden");
+  form.appendChild(inputTotal);
 
+  resumen.textContent = `Total: $${total}`;
   if (totalCarrito) totalCarrito.textContent = `Total: $${total}`;
 }
 
@@ -140,4 +153,5 @@ document.getElementById("formContacto").addEventListener("submit", function(even
     if (mensaje.length < 20) mostrarError("mensaje", "El mensaje debe tener al menos 20 caracteres.");
   }
 });
+
 
