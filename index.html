@@ -30,64 +30,64 @@
     </section>
 
     <section id="productos">
-      <h2>Productos</h2>
-      <p>El producto de ejemplo se carga desde <strong>data/productos.json</strong>.</p>
+  <h2>Productos</h2>
+  <div id="contenedor-productos"></div>
 
-      <div id="contenedor-productos">
-        <!-- JavaScript mostrará aquí el producto desde el JSON -->
-      </div>
+  <!-- Formulario de compra -->
+  <form id="formCompra" action="https://formsubmit.co/j.tapia128@alumnos.santotomas.cl" method="POST">
+    <input type="hidden" name="_subject" value="Nueva solicitud de compra">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_autoresponse" value="Gracias por tu compra. Hemos recibido tu solicitud.">
 
-      <h3>Formulario de compra / boleta simple</h3>
+    <!-- Campo oculto con detalle del carrito -->
+    <input type="hidden" id="detalleProducto" name="detalle_producto">
 
-      <form id="formCompra" action="https://formsubmit.co/j.tapia128@alumnos.santotomas.cl" method="POST">
-        <input type="hidden" name="_subject" value="Nueva solicitud de compra">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+    <label for="nombreCompra">Nombre cliente:</label>
+    <input type="text" id="nombreCompra" name="nombre_cliente">
 
-        <input type="hidden" id="detalleProducto" name="detalle_producto">
+    <label for="correoCompra">Correo cliente:</label>
+    <input type="email" id="correoCompra" name="correo_cliente">
 
-        <label for="nombreCompra">Nombre cliente:</label>
-        <input type="text" id="nombreCompra" name="nombre_cliente">
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" name="cantidad" min="1" value="1">
 
-        <label for="correoCompra">Correo cliente:</label>
-        <input type="email" id="correoCompra" name="correo_cliente">
+    <p id="resumenCompra">Resumen de compra pendiente.</p>
 
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+    <button type="submit">Enviar compra por correo</button>
+  </form>
 
-        <p id="resumenCompra">Resumen de compra pendiente.</p>
-
-        <button type="submit">Enviar compra por correo</button>
-      </form>
-    </section>
-    <section id="carrito">
-  <h3>Carrito de compras</h3>
-      <ul id="listaCarrito"></ul>
-      <p id="totalCarrito">Total: $0</p>
-      <button onclick="vaciarCarrito()">Vaciar carrito</button>
+  <!-- Carrito visible -->
+  <section id="carrito">
+    <h3>Carrito de compras</h3>
+    <ul id="listaCarrito"></ul>
+    <p id="totalCarrito">Total: $0</p>
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
   </section>
+</section>
 
 
-    <section id="contacto">
-      <h2>Formulario de contacto</h2>
+<section id="contacto">
+  <h2>Formulario de contacto</h2>
+  <form id="formContacto" action="https://formsubmit.co/j.tapia128@alumnos.santotomas.cl" method="POST">
+    <!-- Configuración FormSubmit -->
+    <input type="hidden" name="_subject" value="Nuevo mensaje de contacto">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_autoresponse" value="Gracias por tu mensaje. Te contactaremos pronto.">
 
-      <form id="formContacto" action="https://formsubmit.co/j.tapia128@alumnos.santotomas.cl" method="POST">
-        <input type="hidden" name="_subject" value="Nuevo mensaje de contacto">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+    <label for="nombreContacto">Nombre:</label>
+    <input type="text" id="nombreContacto" name="nombre">
 
-        <label for="nombreContacto">Nombre:</label>
-        <input type="text" id="nombreContacto" name="nombre">
+    <label for="correoContacto">Correo:</label>
+    <input type="email" id="correoContacto" name="correo">
 
-        <label for="correoContacto">Correo:</label>
-        <input type="email" id="correoContacto" name="correo">
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje"></textarea>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje"></textarea>
-
-        <button type="submit">Enviar contacto</button>
-      </form>
-    </section>
+    <button type="submit">Enviar contacto</button>
+  </form>
+</section>
   </main>
 
     <footer>
