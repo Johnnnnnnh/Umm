@@ -1,27 +1,24 @@
 // Archivo base para estudiantes.
 // Objetivo: cargar productos desde JSON, mostrar productos y validar formularios de forma básica.
 
-let productoEjemplo = null;
+let productos = [];
+let carrito = [];
 
+// Cargar productos desde JSON
 fetch("data/productos.json")
   .then(respuesta => respuesta.json())
   .then(datos => {
-    // Se guarda el primer producto para el resumen de compra
-    productoEjemplo = datos[0];
-
-    // Se muestran todos los productos
-    mostrarProductos(datos);
-
-    // Se actualiza el resumen inicial
+    productos = datos;
+    mostrarProductos(productos);
     actualizarResumenCompra();
   })
   .catch(error => {
     console.error("Error al cargar productos.json:", error);
   });
 
+// Mostrar productos en tarjetas
 function mostrarProductos(productos) {
   const contenedor = document.getElementById("contenedor-productos");
-
   contenedor.innerHTML = "";
 
   productos.forEach(producto => {
@@ -29,62 +26,95 @@ function mostrarProductos(productos) {
       <div class="producto">
         <h3>${producto.nombre}</h3>
         <p>${producto.descripcion}</p>
-        <p><strong>Categoría:</strong> ${producto.categoria}</p>
         <p><strong>Precio:</strong> $${producto.precio}</p>
         <p><strong>Stock:</strong> ${producto.stock}</p>
+        <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
       </div>
     `;
   });
 }
 
+// Agregar producto al carrito
+function agregarAlCarrito(idProducto) {
+  const producto = productos.find(p => p.id === idProducto);
+  if (!producto) return;
+
+  const item = carrito.find(p => p.id === idProducto);
+  if (item) {
+    if (item.cantidad < producto.stock) {
+      item.cantidad++;
+    } else {
+      mostrarError("cantidad", "No hay suficiente stock disponible.");
+    }
+  } else {
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+  actualizarResumenCompra();
+}
+
+// Actualizar resumen de compra
 function actualizarResumenCompra() {
-  if (productoEjemplo === null) {
+  const resumen = document.getElementById("resumenCompra");
+  const detalle = document.getElementById("detalleProducto");
+
+  if (carrito.length === 0) {
+    resumen.textContent = "Carrito vacío.";
+    detalle.value = "";
     return;
   }
 
-  const cantidad = Number(document.getElementById("cantidad").value);
-  const total = productoEjemplo.precio * cantidad;
+  let textoResumen = "";
+  let total = 0;
 
-  document.getElementById("resumenCompra").textContent =
-    `Producto: ${productoEjemplo.nombre} | Cantidad: ${cantidad} | Total: $${total}`;
+  carrito.forEach(item => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    textoResumen += `${item.nombre} x${item.cantidad} = $${subtotal} | `;
+  });
 
-  document.getElementById("detalleProducto").value =
-    `Producto: ${productoEjemplo.nombre} | Cantidad: ${cantidad} | Total: $${total}`;
+  resumen.textContent = `Carrito: ${textoResumen} Total: $${total}`;
+  detalle.value = `Carrito: ${textoResumen} Total: $${total}`;
 }
 
-// Actualiza el resumen cuando cambia la cantidad
-document.getElementById("cantidad").addEventListener("input", actualizarResumenCompra);
+// Mostrar error junto a un campo
+function mostrarError(idCampo, mensaje) {
+  const campo = document.getElementById(idCampo);
+  let error = campo.nextElementSibling;
+  if (!error || !error.classList.contains("error")) {
+    error = document.createElement("span");
+    error.classList.add("error");
+    campo.insertAdjacentElement("afterend", error);
+  }
+  error.textContent = mensaje;
+}
 
-// Formulario de compra
+// Validaciones del formulario de compra
 document.getElementById("formCompra").addEventListener("submit", function(event) {
   const nombre = document.getElementById("nombreCompra").value.trim();
   const correo = document.getElementById("correoCompra").value.trim();
-  const cantidad = Number(document.getElementById("cantidad").value);
 
-  if (nombre === "" || correo === "" || cantidad <= 0) {
+  const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+
+  if (nombre === "" || !correoValido || carrito.length === 0) {
     event.preventDefault();
-    alert("Debe completar nombre, correo y una cantidad válida.");
+    if (nombre === "") mostrarError("nombreCompra", "Debe ingresar su nombre.");
+    if (!correoValido) mostrarError("correoCompra", "Correo inválido.");
+    if (carrito.length === 0) alert("Debe agregar al menos un producto al carrito.");
   }
-
-  // TODO estudiante:
-  // Mejorar validación de correo.
-  // Validar que la cantidad no supere el stock.
-  // Mostrar mensajes de error en la página, no solo con alert.
 });
 
-// Formulario de contacto
+// Validaciones del formulario de contacto
 document.getElementById("formContacto").addEventListener("submit", function(event) {
   const nombre = document.getElementById("nombreContacto").value.trim();
   const correo = document.getElementById("correoContacto").value.trim();
   const mensaje = document.getElementById("mensaje").value.trim();
 
-  if (nombre === "" || correo === "" || mensaje === "") {
-    event.preventDefault();
-    alert("Debe completar todos los campos del formulario de contacto.");
-  }
+  const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 
-  // TODO estudiante:
-  // Validar formato del correo.
-  // Validar cantidad mínima de caracteres en el mensaje.
-  // Mostrar mensajes de error junto a cada campo.
+  if (nombre === "" || !correoValido || mensaje.length < 20) {
+    event.preventDefault();
+    if (nombre === "") mostrarError("nombreContacto", "Debe ingresar su nombre.");
+    if (!correoValido) mostrarError("correoContacto", "Correo inválido.");
+    if (mensaje.length < 20) mostrarError("mensaje", "El mensaje debe tener al menos 20 caracteres.");
+  }
 });
